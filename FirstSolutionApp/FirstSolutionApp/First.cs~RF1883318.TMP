@@ -1,0 +1,74 @@
+using System.Collections.Generic;
+
+namespace ConsoleApp6 {
+    public class Result {
+        
+        public int CategoryId { get; set; }
+        public int ParentCategoryId { get; set; }
+
+        public string Name { get; set }
+        public string Keywords { get; set }
+    }
+
+    public List<Result> GetSampleDataSet () {
+        List<Result> result = new List<Result> () {
+            new Result () {
+                    CategoryId = 100,
+                        ParentCategoryId = 200,
+                        Name = "Business",
+                        Keywords = "Money"
+                },
+                new Result () {
+                    CategoryId = 200,
+                        ParentCategoryId = -1,
+                        Name = "Tutoring",
+                        Keywords = "Teaching"
+                },
+                new Result () {
+                    CategoryId = 101,
+                        ParentCategoryId = -100,
+                        Name = "Accounting",
+                        Keywords = "Taxes"
+                },
+                new Result () {
+                    CategoryId = 102,
+                        ParentCategoryId = -100,
+                        Name = "Taxation"
+                },
+                new Result () {
+                    CategoryId = 201,
+                        ParentCategoryId = -200,
+                        Name = "Computer"
+                },
+                new Result () {
+                    CategoryId = 103,
+                        ParentCategoryId = -101,
+                        Name = "Corporate Tax"
+                },
+                new Result () {
+                    CategoryId = 202,
+                        ParentCategoryId = -201,
+                        Name = "Operating System"
+                },
+                new Result () {
+                    CategoryId = 109,
+                        ParentCategoryId = -109,
+                        Name = "Small business Taxt"
+                },
+        }
+        return result;
+    }
+
+    public string GetKeyword (int categoryId) {
+        string keyword = string.Empty;
+        var result = GetSampleDataSet ();
+        if (!string.IsNullOrEmpty (result.Keywords))
+            return result.Keywords;
+        return GetKeyword (categoryId);
+    }
+    public class First {
+        public void ProcessName (int categoryId) {
+            
+        }
+    }
+}
